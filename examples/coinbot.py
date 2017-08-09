@@ -3,6 +3,17 @@
 import time
 
 import scrollphathd
+from coinmarketcap import Market
+coinmarketcap = Market()
+
+btc = coinmarketcap.ticker("Bitcoin", limit=3, convert='EUR')
+nxs = coinmarketcap.ticker("Nexus", limit=3, convert='EUR')
+part = coinmarketcap.ticker("Particl", limit=3, convert='EUR')
+
+btcd = btc[460:485]
+nxsd = nxs [460:485]
+partd = part[460:485]
+
 
 print("""
 Scroll pHAT HD: Advanced Scrolling
@@ -26,9 +37,9 @@ rewind = True
 delay = 0.03
 
 # Change the lines below to your own message
-lines = ["In the old #BILGETANK we'll keep you in the know",
-         "In the old #BILGETANK we'll fix your techie woes",
-         "And we'll make things",
+lines = ["Bitcoin: " + btcd,
+         "Nexus: " + nxsd,
+         "Particl: " + partd,
          "And we'll break things",
          "'til we're altogether aching",
          "Then we'll grab a cup of grog down in the old #BILGETANK"]
